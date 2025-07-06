@@ -1,0 +1,112 @@
+:host {
+  display: block;
+  background: #121212;
+  padding: 2rem;
+  color: #e0e0e0;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.col-4 {
+  flex: 0 0 calc(33.333% - 2rem);
+  display: flex;
+  justify-content: center;
+}
+
+.product-card {
+  background: #1e1e1e;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+}
+
+.product-img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  background: #2a2a2a;
+  margin-bottom: 1rem;
+}
+
+.product-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 0.25rem;
+}
+
+.product-subtitle {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-bottom: 0.75rem;
+}
+
+.product-price {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #0f0;
+  margin-bottom: 1rem;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.btn-cart, .btn-more {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
+  text-align: center;
+}
+
+.btn-cart {
+  background-color: #0ca678;
+}
+
+.btn-cart:hover {
+  background-color: #099268;
+}
+
+.btn-more {
+  background-color: #495057;
+}
+
+.btn-more:hover {
+  background-color: #343a40;
+}
+
+/* Për pajisje më të vogla */
+@media (max-width: 768px) {
+  .col-4 {
+    flex: 0 0 calc(50% - 2rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .col-4 {
+    flex: 0 0 100%;
+  }
+}

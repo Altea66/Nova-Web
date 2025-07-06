@@ -1,0 +1,73 @@
+<div class="container register-container">
+  <div class="form-box">
+    <form (ngSubmit)="register()" #regForm="ngForm" novalidate>
+      <h2 class="form-title">Register</h2>
+
+      
+      <p class="error-message" *ngIf="errorMessage">{{ errorMessage }}</p>
+      <p class="success-message" *ngIf="successMessage">{{ successMessage }}</p>
+
+      
+      <input
+        type="text"
+        name="name"
+        [(ngModel)]="name"
+        placeholder="Full Name"
+        required
+        autocomplete="name"
+        class="form-input"
+      />
+      <div class="field-error" *ngIf="regForm.submitted && !name">
+        Emri është i detyrueshëm.
+      </div>
+
+      
+      <input
+        type="email"
+        name="email"
+        [(ngModel)]="email"
+        #emailModel="ngModel"
+        placeholder="Email"
+        required
+        email
+        class="form-input"
+      />
+      <div class="field-error" *ngIf="emailModel.invalid && (emailModel.dirty || emailModel.touched)">
+        <div *ngIf="emailModel.errors?.['required']">
+          Email-i është i detyrueshëm.
+        </div>
+        <div *ngIf="emailModel.errors?.['email']">
+          Format i gabuar i email-it.
+        </div>
+      </div>
+
+    
+      <input
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        placeholder="Password"
+        required
+        autocomplete="new-password"
+        class="form-input"
+      />
+      <div class="field-error" *ngIf="regForm.submitted && !password">
+        Fjalëkalimi është i detyrueshëm.
+      </div>
+
+      
+      <button
+        type="submit"
+        [disabled]="regForm.invalid"
+        class="btn-submit"
+      >
+        Register
+      </button>
+
+      <p class="form-footer">
+        Already have an account?
+        <a routerLink="/login" class="link">Login here</a>
+      </p>
+    </form>
+  </div>
+</div>
